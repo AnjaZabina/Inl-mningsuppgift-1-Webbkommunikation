@@ -22,21 +22,49 @@
 *
 */
 
-let url = 'http://www.omdbapi.com/?apikey=df23ef2&s=star trek';
+//let showResult = document.getElementById("movie-result");
 
-let userInput = document.getElementById("userinput");
-let type = document.getElementById("select-type");
-let year = document.getElementById("select-year");
-let searchBtn = document.getElementById("search-btn");
-let showResult = document.getElementById("movie-result");
-
-var data;
+//var data;
 
 
-function getanswer(q){
-$.get("https://www.omdbapi.com/"+q+"&apikey=ba1f4581", function(rawdata){
-var rawstring =JSON.stringify(rawdata);
-data =JSON.parse(rawstring);
+function getanswer(){
+ let url = 'http://www.omdbapi.com/?apikey=df23ef2';
+ let userInput = document.getElementById("userinput").value;
+ let type = document.getElementById("select-type").value;
+ let year = document.getElementById("select-year").value;
+ url += '&s=' + userInput;
+ 
+  if (type.trim() != "Type") {
+    url += '&type=' + type;
+ } 
+
+  if (year.trim() !="Release year") {
+    url += '&y=' + year;
+  }
+  console.log(url)
+
+  fetch(url)
+  .then((response) => {
+      if (!response.ok) {
+          throw new Error('Something wrong with the request');
+      }
+
+      return response.text();
+  })
+  .then((data) => {
+    var output = JSON.parse(data);
+
+    for (var loopis of output['Search']) {
+      console.log(loopis)
+    }
+  
+  })
+  .catch((error) => {
+      console.log(error);
+  })
+  
+ /*$.get("https://www.omdbapi.com/"+q+"&apikey=ba1f4581", function(rawdata){
+
 var title = data.Search[0].Title;
 var year = data.Search[0].Year; 
 var type = data.Search[0].Type; 
@@ -45,7 +73,7 @@ var totalMovies = data.Search[0].totaltResults;
 var imdburl="https://www.imdb.com/title/%22+data.Search[0].imdbID+%22/";
 
 var posterurl =data.Search[0].Poster;
-document.getElementById('answer').innerHTML=
+
    // "<h1>"+title+"</h1><br> <img src= '"+posterurl+"'><br><p> Year Released:"+year+"</p> <br> <p> IMDB page: <a href='"+imdburl+"'target='_blank'>"+imdburl+"</a></p>"; }); }
 
         `<div class="row">
@@ -60,7 +88,9 @@ document.getElementById('answer').innerHTML=
             </ul>
           </div>
         </div>`; 
+        
     }); 
+    */
     // for(let movie of totalMovies){
     //     return
     // }

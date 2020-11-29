@@ -9,8 +9,8 @@
 	<div class="container">
 		<h3 class="text-center">Search For Any Movie</h3>
 
-		<form id="searchForm">
-			<input onkeyup="getanswer(document.getElementById('userinput').value)" type="text" class="form-controll" id="userinput" placeholder="Search Movies...">
+		<form id="searchForm" onsubmit="event.preventDefault();getanswer();">
+			<input type="text" id="userinput" placeholder="Search Movies..."></input>
 		
 			<select name="type" id="select-type">
 				<option> Type </option>
