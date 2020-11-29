@@ -55,6 +55,7 @@ function getanswer(){
     var output = JSON.parse(data);
 
     for (var loopis of output['Search']) {
+      append_stuff(loopis)
       console.log(loopis)
     }
   
@@ -62,36 +63,24 @@ function getanswer(){
   .catch((error) => {
       console.log(error);
   })
-  
- /*$.get("https://www.omdbapi.com/"+q+"&apikey=ba1f4581", function(rawdata){
 
-var title = data.Search[0].Title;
-var year = data.Search[0].Year; 
-var type = data.Search[0].Type; 
-var id = data.Search[0].imdbID;
-var totalMovies = data.Search[0].totaltResults;
-var imdburl="https://www.imdb.com/title/%22+data.Search[0].imdbID+%22/";
 
-var posterurl =data.Search[0].Poster;
-
-   // "<h1>"+title+"</h1><br> <img src= '"+posterurl+"'><br><p> Year Released:"+year+"</p> <br> <p> IMDB page: <a href='"+imdburl+"'target='_blank'>"+imdburl+"</a></p>"; }); }
-
-        `<div class="row">
-          <div class="col-md-3">
-            <img src="${posterurl}" class="thumbnail">
-            <h2>${title}</h2>
-            <ul class="list-group">
-              <li class="list-group-item"><strong>Year released:</strong>${year}</li>
-              <li class="list-group-item"><strong>Type:</strong>${type}</li>
-              <li class="list-group-item"><strong>Imdb ID:</strong>${id}</li>
-              <li class="list-group-item"><strong>IMDB page:</strong><a href='${imdburl}'target='_blank'> Home page</a></li>
-            </ul>
-          </div>
-        </div>`; 
-        
-    }); 
-    */
-    // for(let movie of totalMovies){
-    //     return
-    // }
+function append_stuff(inpt) {
+// html-skit , hitta elementet answer, inpt.Title, inpt.Type
+  let showResult = document.getElementById("answer");
+  let html_stuff = `<div class="row">
+  <div class="col-md-3">
+    <img src="${inpt.Poster}" class="thumbnail">
+    <h2>${inpt.Title}</h2>
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Year released:</strong>${inpt.Year}</li>
+      <li class="list-group-item"><strong>Type:</strong>${inpt.Type}</li>
+      <li class="list-group-item"><strong>Imdb ID:</strong>${inpt.imdbID}</li>
+      <li class="list-group-item"><strong>IMDB page:</strong><a href='https://www.imdb.com/title/${inpt.imdbID}/' target='_blank'> Home page</a></li>
+    </ul>
+  </div>
+</div>`
+  showResult.innerHTML += html_stuff;
+}
+ //Töm diven efter varje nytt sök!
 }
