@@ -22,11 +22,6 @@
 *
 */
 
-//let showResult = document.getElementById("movie-result");
-
-//var data;
-
-
 function getanswer(){
  let url = 'http://www.omdbapi.com/?i=tt3896198&apikey=2f832a12';
  let userInput = document.getElementById("userinput").value;
@@ -61,7 +56,7 @@ function getanswer(){
 
 
 function append_stuff(inpt) {
-// html-skit , hitta elementet answer, inpt.Title, inpt.Type
+// html- , hitta elementet answer, inpt.Title, inpt.Type
   let showResult = document.getElementById("answer");
   let html_stuff = `<div class="row">
   <div class="col-md-3">
@@ -76,6 +71,10 @@ function append_stuff(inpt) {
   </div>
 </div>`
   showResult.innerHTML += html_stuff;
+  
+
+  }
+ 
+ 
 }
- //Töm diven efter varje nytt sök!
-}
+ //Töm diven efter varje nytt sök! Gaah!

@@ -1,13 +1,21 @@
-#movies img, #movie img{
-    width:100%;
-  }
-  
-  @media(min-width:960px){
-    #movies .col-md-3 .well{
-      height: 390px;
-    }
-  
-    #movies .col-md-3 img{
-      height:240px;
-    }
-  }
+
+#answer {
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: 1fr, 1fr, 1fr;
+      grid-template-areas: 
+      "answer answer answer";
+      
+}
+
+li {
+  margin: 15px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+img {
+  margin: 15px;
+  height: 500px;
+  width: 300px;
+}
