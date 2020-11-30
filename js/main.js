@@ -31,16 +31,11 @@ function getanswer(){
  let url = 'http://www.omdbapi.com/?i=tt3896198&apikey=2f832a12';
  let userInput = document.getElementById("userinput").value;
  let type = document.getElementById("select-type").value;
- let year = document.getElementById("select-year").value;
  url += '&s=' + userInput;
  
   if (type.trim() != "Type") {
     url += '&type=' + type;
  } 
-
-  if (year.trim() !="Release year") {
-    url += '&y=' + year;
-  }
   console.log(url)
 
   fetch(url)
