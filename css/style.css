@@ -1,21 +1,59 @@
+body{
+  background-color: rgb(87, 83, 83);
+}
 
 #answer {
-      display: grid;
-      grid-template-rows: auto;
-      grid-template-columns: 1fr, 1fr, 1fr;
-      grid-template-areas: 
-      "answer answer answer";
-      
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr, 1fr, 1fr;
+  grid-template-areas: 
+  "answer answer answer";
+  margin-top: 100px;
+  justify-content: center;
+  background-color:gray;
+  
 }
 
-li {
-  margin: 15px;
-  width: 300px;
-  margin-bottom: 20px;
+#searchForm{
+  text-align: center;
 }
 
-img {
-  margin: 15px;
+.text-center{
+  font-size: 50px;
+}
+
+#userinput,
+#select-type,
+#search-btn {
+  font-size: 20px;
+  background-color: lightgray;
+}
+
+li{
+  margin: 30px;
+  padding-top: 10px;
+  width: 200px;
+  list-style: none;
+  font-family: cursive;
+}
+
+
+h2{
+  font-size: 18px;
+  padding-right: 30px;
+  font-family: cursive;
+  text-align: center;
+}
+
+
+
+img{
   height: 500px;
   width: 300px;
+  margin-top: 20px;
+  padding: 20px;
+  font-size: 10px;
 }
+
+
+  

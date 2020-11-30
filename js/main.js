@@ -43,6 +43,7 @@ function getanswer(){
   })
   .then((data) => {
     var output = JSON.parse(data);
+    document.getElementById("answer").innerHTML = ''; 
 
     for (var loopis of output['Search']) {
       append_stuff(loopis)
@@ -59,7 +60,7 @@ function append_stuff(inpt) {
 // html- , hitta elementet answer, inpt.Title, inpt.Type
   let showResult = document.getElementById("answer");
   let html_stuff = `<div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3"> <div class="content">
     <img src="${inpt.Poster}" class="thumbnail">
     <h2>${inpt.Title}</h2>
     <ul class="list-group">
@@ -77,4 +78,4 @@ function append_stuff(inpt) {
  
  
 }
- //Töm diven efter varje nytt sök! Gaah!
+ 
